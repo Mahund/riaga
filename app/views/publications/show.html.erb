@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @publication.title %>
+</p>
+
+<h5>Comments:</h5>
+  <% @publication.comments.each do |comment| %>
+    <%= link_to comment.user.name, user_path(comment.user) %> said
+    <%= comment.content %>
+    <br>
+  <% end %>
+<br>
+
+<%= link_to 'Edit', edit_publication_path(@publication) %> |
+<%= link_to 'Back', publications_path %>
